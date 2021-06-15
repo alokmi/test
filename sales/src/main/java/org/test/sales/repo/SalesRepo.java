@@ -18,5 +18,7 @@ public interface SalesRepo {
 	List<AmendSaleMessage> getAmendSales(String productType);
 
 	public List<String> getMessageType();
+	
+	public void reset();
 
 }

@@ -18,13 +18,13 @@ public class MessageConsumer {
 		counter++;
 		processor.process(message);
 		if (counter % REPORTING_THRESHOLD == 0) {
-			reportGenerator.generateSalesPerProductReport();
+			reportGenerator.generateSalesPerProduct();
 		}
 
 		if (counter % MAX_MESSAGES == 0) {
 			counter = -1;
 			System.out.println("\nApplication is pausing.. ");
-			reportGenerator.generateAdjustmentReport();
+			reportGenerator.generateAdjustment();
 		}
 
 	}

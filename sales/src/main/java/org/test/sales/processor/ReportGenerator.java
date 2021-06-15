@@ -9,7 +9,7 @@ import org.test.sales.repo.SalesRepo;
 
 public class ReportGenerator {
 
-	public void generateSalesPerProductReport() {
+	public void generateSalesPerProduct() {
 		SalesRepo repo = RepoFactory.getSalesRepo();
 		List<String> products = repo.getProductList();
 
@@ -26,7 +26,7 @@ public class ReportGenerator {
 		});
 	}
 
-	public void generateAdjustmentReport() {
+	public void generateAdjustment() {
 		SalesRepo repo = RepoFactory.getSalesRepo();
 		List<String> saleTypes = repo.getMessageType();
 		saleTypes.stream().forEach(saleType -> {

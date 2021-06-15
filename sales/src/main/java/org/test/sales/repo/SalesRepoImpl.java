@@ -26,12 +26,20 @@ public class SalesRepoImpl implements SalesRepo {
 
 	@Override
 	public List<MessageType> getProductSales(String productType) {
-		return salesCache.get(productType);
+		List<MessageType> list = salesCache.get(productType);
+		if (list == null) {
+			return new ArrayList<>();
+		}
+		return list;
 	}
 
 	@Override
 	public List<AmendSaleMessage> getAmendSales(String saleType) {
-		return amendCache.get(saleType);
+		List<AmendSaleMessage> list = amendCache.get(saleType);
+		if (list == null) {
+			return new ArrayList<>();
+		}
+		return list;
 	}
 
 	@Override
@@ -52,6 +60,13 @@ public class SalesRepoImpl implements SalesRepo {
 	@Override
 	public List<String> getMessageType() {
 		return new ArrayList<>(amendCache.keySet());
+	}
+
+	@Override
+	public void reset() {
+		salesCache = new HashMap<>();
+		amendCache = new HashMap<>();
+
 	}
 
 }
